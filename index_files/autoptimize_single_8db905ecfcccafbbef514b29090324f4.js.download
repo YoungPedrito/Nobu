@@ -1,0 +1,3 @@
+$(function(){$('.hero').each(function(){let hero=new HeroWidget($(this));});});var HeroWidget=function(this$obj){this.$obj=this$obj;this.init();}
+HeroWidget.prototype.init=function init(){this.initiateSplide();this.scrollListener();};HeroWidget.prototype.initiateSplide=function initiateSplide(){let slideCount=this.$obj.attr('data-hero-items');if(slideCount>1){var heroSplide=new Splide('.hero-splide',{type:'loop',pagination:false,});heroSplide.mount();}}
+HeroWidget.prototype.scrollListener=function scrollListener(){this.$obj.find('.hero-content__scroll').click(function(){$('html,body').animate({scrollTop:$("#main-content").offset().top-100},'slow');});}

@@ -1,0 +1,5 @@
+$(function(){$('.header').each(function(){let header=new Header($(this));});});let Header=function Header(this$obj){this.$obj=this$obj;this.menuTrigger();this.stickyTrigger();this.bannerCheck();};Header.prototype.menuTrigger=function menuTrigger(){let _this=this;this.$obj.find('.js-menu-open').on('click',function(){_this.$obj.find('.header__inner').addClass('nav-active');_this.$obj.find('.navigation').addClass('nav-active');_this.$obj.find('.menu').addClass('menu-active');setTimeout(function()
+{_this.$obj.find('.navigation').focus();},500);});};Header.prototype.stickyTrigger=function stickyTrigger(){let _this=this.$obj;if($('.hero').length<=0){if($('.layered-content').length<=0){_this.addClass(' locked header--sticky');}}
+let scroll=$(window).scrollTop();if(scroll>0){_this.addClass('header--sticky');}else
+$(window).scroll(function(){let scrollTop=$(window).scrollTop();if(scrollTop>0){_this.addClass('header--sticky');}else{if(!_this.hasClass('locked')){_this.removeClass('header--sticky');}}});}
+Header.prototype.bannerCheck=function bannerCheck(){if(this.$obj.find(".js-banners").length>0){$('body').addClass('has-banner');}else{$('body').addClass('no-banner');}}
